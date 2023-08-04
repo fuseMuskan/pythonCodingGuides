@@ -22,23 +22,24 @@ class DatabaseLogger:
     def logging(self, msg):
         return logging.info(f"Database Logging {msg} at {datetime.datetime.now()}")
     
-def FactoryLogger(logger_type: str):
-    """Factory Method"""
-
-    loggers = {
-        "File": FileLogger,
-        "Console": ConsoleLogger,
-        "Database": DatabaseLogger
-    }
-    return loggers[logger_type]()
+class LoggerFactory:
+    @staticmethod
+    def create_logger(logger_type: str):
+        """Factory Method"""
+        loggers = {
+            "File": FileLogger,
+            "Console": ConsoleLogger,
+            "Database": DatabaseLogger
+        }
+        return loggers[logger_type]()
 
 
 logging.basicConfig(level=logging.INFO)
 
 message = "secret"
-file = FactoryLogger("File")
-console = FactoryLogger("Console")
-database = FactoryLogger("Database")
+file = LoggerFactory.create_logger("File")
+console = LoggerFactory.create_logger("Console")
+database = LoggerFactory.create_logger("Database")
 
 file.logging(message)
 console.logging(message)
