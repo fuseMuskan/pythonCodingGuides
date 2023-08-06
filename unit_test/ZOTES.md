@@ -1,7 +1,3 @@
-Sure! Here are the notes on the `unittest` module in Markdown language:
-
----
-
 # Python `unittest` Module Notes
 
 ## Overview
