@@ -1,7 +1,3 @@
-class NegativeQuantityException(Exception):
-    pass
-
-
 class Product:
     def __init__(self, name, price, quantity):
         self.name = name
@@ -49,13 +45,11 @@ class Customer:
         self.shopping_cart = ShoppingCart()
 
     def add_to_cart(self, product, quantity):
-        try:
-            if quantity < 0:
-                raise NegativeQuantityException
-            else:
-                self.shopping_cart.add_product(product, quantity)
-        except NegativeQuantityException:
-            print("Quantity cannot be less than zero.")
+        if quantity > 0:
+            self.shopping_cart.add_product(product, quantity)
+        else:
+            print("Quantity Cannot be less than zero.")
+
 
     def remove_from_cart(self, product, quantity):
         self.shopping_cart.remove_product(product, quantity)
