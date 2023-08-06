@@ -50,6 +50,7 @@ class Customer:
         else:
             print("Quantity Cannot be less than zero.")
 
+
     def remove_from_cart(self, product, quantity):
         self.shopping_cart.remove_product(product, quantity)
 
