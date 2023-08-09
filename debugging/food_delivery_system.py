@@ -95,8 +95,7 @@ delivery_service = DeliveryService()
 delivery_service.add_restaurant(restaurant1)
 delivery_service.add_restaurant(restaurant2)
 
-restaurant1.remove_from_menu(food_item2, 6)  # Bug: This should print an error message
-
+restaurant1.remove_from_menu(food_item2, 6) # Bug: This should print an error message
 restaurant2.remove_from_menu(food_item1, 1)  # Bug: This should print an error message
 
 print("Total revenue for Tasty Bites:", restaurant1.get_total_revenue())
