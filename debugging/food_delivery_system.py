@@ -9,17 +9,23 @@ class Restaurant:
         self.menu = {}
 
     def add_to_menu(self, food_item, quantity):
-        if food_item in self.menu:
-            self.menu[food_item] += quantity
+        if quantity >= 0:
+            if food_item in self.menu:
+                self.menu[food_item] += quantity
+            else:
+                self.menu[food_item] = quantity
         else:
-            self.menu[food_item] = quantity
+            print("Quantity cannot be less than zero.")
 
     def remove_from_menu(self, food_item, quantity):
         if food_item in self.menu:
-            if self.menu[food_item] <= quantity:
-                del self.menu[food_item]
+            if quantity >= 0:
+                if self.menu[food_item] <= quantity:
+                    del self.menu[food_item]
+                else:
+                    self.menu[food_item] -= quantity
             else:
-                self.menu[food_item] -= quantity
+                print("Quantity cannot be less than zero.")
         else:
             print(f"{food_item.name} not found in the menu.")
 
